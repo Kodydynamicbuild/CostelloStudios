@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Kody | Costello Works</title>
+  <style>
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-2: #3fb950;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(13, 17, 23, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 0.9rem; }
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: "Consolas", monospace;
+  font-weight: 700;
+}
+
+.brand h1 { font-size: 1.1rem; }
+.tagline { color: var(--muted); font-size: 0.85rem; }
+
+nav a {
+  margin-left: 1.5rem;
+  color: var(--muted);
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+}
+nav a:hover { color: var(--text); }
+
+.hero {
+  padding: 6rem 2rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.eyebrow {
+  color: var(--accent-2);
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0.5rem 0 1rem;
+}
+
+.lead { color: var(--muted); font-size: 1.1rem; max-width: 620px; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+.btn:hover { opacity: 0.9; }
+
+.gallery-section,
+.contact-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: "Consolas", monospace;
+  font-size: 1rem;
+  color: var(--accent-2);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+figure {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+figure:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.contact-section p { color: var(--muted); margin-bottom: 1.25rem; }
+
+.contact-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.label {
+  color: var(--muted);
+  font-family: "Consolas", monospace;
+  font-size: 0.85rem;
+}
+
+.handle {
+  font-family: "Consolas", monospace;
+  font-size: 1.2rem;
+  color: var(--accent-2);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .site-header { flex-direction: column; gap: 1rem; }
+  nav a { margin: 0 0.75rem; }
+  .hero { padding: 4rem 1.25rem 3rem; }
+  .gallery { grid-template-columns: 1fr; }
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+}
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #000;
+}
+figure img {
+  object-fit: contain;
+  background: #000;
+  height: 220px;
+}
+
+.scripts-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.script-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.script-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.script-card pre {
+  background: #0b0f14;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.script-card code {
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  white-space: pre;
+}
+</style>
+</head>
+<body>
+
+  <div class="banner">
+    <img src="images/banner.png" alt="Costello Studios banner">
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <img class="brand-logo" src="images/logo.png" alt="Costello Studios logo">
+      <div>
+        <h1>Developer Kody</h1>
+        <p class="tagline">Roblox developer · Costello Works</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#work">Recent Works</a>
+      <a href="#scripts">Scripts</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Costello Works</p>
+    <h2>Building immersive Roblox worlds, one street at a time.</h2>
+    <p class="lead">
+      Cities, beaches, shops and hangouts, built from the ground up for players
+      to explore. Here is a look at recent work.
+    </p>
+    <a class="btn" href="#contact">Get in touch</a>
+  </section>
+
+  <section id="work" class="gallery-section">
+    <h3 class="section-title">Recent Works</h3>
+    <div class="gallery">
+      <figure><img src="images/RobloxScreenShot20261030_193914783.png" alt="Roblox interior and city scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_193821076.png" alt="Roblox interior and city scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_171736965.png" alt="Roblox sunset boardwalk"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_171709123.png" alt="Roblox sunset boardwalk"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_171650644.png" alt="Roblox sunset boardwalk"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_171630956.png" alt="Roblox sunset boardwalk"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_170656460.png" alt="Roblox beachfront scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_170627359.png" alt="Roblox beachfront scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_170601755.png" alt="Roblox beachfront scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_170536554.png" alt="Roblox beachfront scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165829069.png" alt="Roblox city street scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165801270.png" alt="Roblox city street scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165722224.png" alt="Roblox city street scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165622224.png" alt="Roblox city street scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165348049.png" alt="Roblox city street scene"></figure>
+      <figure><img src="images/RobloxScreenShot20261030_165253749.png" alt="Roblox city street scene"></figure>
+    </div>
+  </section>
+
+  <section id="scripts" class="scripts-section">
+    <h3 class="section-title">Roblox Scripts</h3>
+
+    <div class="script-card">
+      <h4>Coin pickup</h4>
+      <pre><code>local coin = script.Parent
+local COIN_VALUE = 10
+
+coin.Touched:Connect(function(hit)
+	local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+	if not player then return end
+
+	local stats = player:FindFirstChild("leaderstats")
+	if stats and stats:FindFirstChild("Coins") then
+		stats.Coins.Value += COIN_VALUE
+		coin:Destroy()
+	end
+end)</code></pre>
+    </div>
+
+    <div class="script-card">
+      <h4>Leaderstats setup</h4>
+      <pre><code>game.Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new("Folder")
+	leaderstats.Name = "leaderstats"
+	leaderstats.Parent = player
+
+	local coins = Instance.new("IntValue")
+	coins.Name = "Coins"
+	coins.Value = 0
+	coins.Parent = leaderstats
+end)</code></pre>
+    </div>
+
+    <div class="script-card">
+      <h4>Door toggle</h4>
+      <pre><code>local door = script.Parent
+local open = false
+
+local function toggle()
+	open = not open
+	door.Transparency = open and 0.8 or 0
+	door.CanCollide = not open
+end
+
+door.ClickDetector.MouseClick:Connect(toggle)</code></pre>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h3 class="section-title">Contact</h3>
+    <p>Want to work together or have a question? Reach out on Discord:</p>
+    <div class="contact-card">
+      <span class="label">Discord</span>
+      <span class="handle">_szumi67</span>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Developer Kody · Costello Works</p>
+  </footer>
+
+</body>
+</html>
